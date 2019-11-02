@@ -2,6 +2,7 @@
   "name": "procurement-page-generator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://chnbohwr.github.io/procurement-page-generator/",
   "dependencies": {
     "@material-ui/core": "^4.5.2",
     "prettier": "^1.18.2",
