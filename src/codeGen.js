@@ -3,7 +3,13 @@ import parserBable from 'prettier/parser-babylon';
 
 export const upperCaseFirstChar = (s = '') => s.charAt(0).toUpperCase() + s.slice(1);
 const lowerCaseFirstChar = (s = '') => s.charAt(0).toLowerCase() + s.slice(1);
-const format = (js) => prettier.format(js, { parser: 'babel', plugins: [parserBable], trailingComma: 'all' });
+const format = (js) => {
+  try{
+    return prettier.format(js, { parser: 'babel', plugins: [parserBable], trailingComma: 'all' })
+  } catch(e){
+    return '// 等你輸入好我在開始工作';
+  }
+};
 const splitCamel = (str) => str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1_').toUpperCase();
 
 export const generateFakeData = (getApiName, getApiJson) => {
