@@ -16,7 +16,7 @@ function App() {
 
   const uperCaseDatabaseName = upperCaseFirstChar(databaseName);
   const uperCaseContainerName = upperCaseFirstChar(containerName);
-    return (
+  return (
     <Container>
       <h1>Code Generator</h1>
       <Box>
@@ -25,12 +25,12 @@ function App() {
       </Box>
       <Box>
         <TextField id="input-getapiname" label="Get API Name" value={getApiName} onChange={e => setGetApiName(e.target.value)} margin="normal" />
-        <TextField id="input-getapiurl" label="Get API URL" value={getApiUrl} onChange={e => setGetApiUrl(e.target.value)} margin="normal" />
+        <TextField style={{ width: 400 }} id="input-getapiurl" label="Get API URL" value={getApiUrl} onChange={e => setGetApiUrl(e.target.value)} margin="normal" />
         <TextField id="input-getapijson" label="Get API JSON" value={getApiJson} onChange={e => setGetApiJson(e.target.value)} multiline rows={5} fullWidth margin="normal" />
       </Box>
       <Box>
         <TextField id="input-putapiname" label="PUT API Name" value={putApiName} onChange={e => setPutApiName(e.target.value)} margin="normal" />
-        <TextField id="input-putapiurl" label="PUT API URL" value={putApiUrl} onChange={e => setPutApiUrl(e.target.value)} margin="normal" />
+        <TextField style={{ width: 400 }} id="input-putapiurl" label="PUT API URL" value={putApiUrl} onChange={e => setPutApiUrl(e.target.value)} margin="normal" />
       </Box>
       <Box>
         <h3>frontEnd/src/apis/fakeData/Fake{uperCaseDatabaseName}Data.js</h3>
@@ -69,9 +69,9 @@ function App() {
       <Box>
         <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseContainerName}/{uperCaseContainerName}.js</h3>
         <SyntaxHighlighter language="javascript" style={docco}>
-        {
-          generateContainer({databaseName, containerName, getApiName, putApiName})
-        }
+          {
+            generateContainer({ databaseName, containerName, getApiName, putApiName })
+          }
         </SyntaxHighlighter>
       </Box>
 
