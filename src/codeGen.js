@@ -102,9 +102,10 @@ export const ${getApiName}Success = (response) => {
   };
 };
 
-export const ${putApiName} = () => {
+export const ${putApiName} = (data) => {
   return {
     type: actionTypes.${splitCamel(databaseName)}___${splitCamel(putApiName)},
+    data
   };
 };
 
@@ -264,7 +265,7 @@ const ${upperCaseFirstChar(containerName)} = (props) => {
   const handleSave = () => {
     const data = {
       nextId: _get(date, 'nextId', false),
-      fanBaselinePrice: differenceList.map(item => ({ id: item.id, next: item.next }))
+      items: differenceList.map(item => ({ id: item.id, next: item.next }))
     };
     setEditMode(false);
     ${putApiName}(data);
