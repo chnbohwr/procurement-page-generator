@@ -4,9 +4,15 @@ import parserBable from 'prettier/parser-babylon';
 export const upperCaseFirstChar = (s = '') => s.charAt(0).toUpperCase() + s.slice(1);
 const lowerCaseFirstChar = (s = '') => s.charAt(0).toLowerCase() + s.slice(1);
 const format = (js) => {
-  try{
-    return prettier.format(js, { parser: 'babel', plugins: [parserBable], trailingComma: 'all' })
-  } catch(e){
+  try {
+    return prettier.format(js, {
+      parser: 'babel',
+      plugins: [parserBable],
+      trailingComma: 'all',
+      singleQuote: true,
+      printWidth: 200,
+    })
+  } catch (e) {
     return '// 等你輸入好我在開始工作';
   }
 };
@@ -65,21 +71,21 @@ export default ${upperCaseFirstChar(databaseName)}Resource;
 
 export const generateActions = ({ databaseName, getApiName, putApiName }) => {
   return format(`
-  export const actionTypes = {
-    ${splitCamel(databaseName)}___${splitCamel(getApiName)}: '${splitCamel(databaseName)}___${splitCamel(databaseName)}',
+  const actionTypes = {
+    ${splitCamel(databaseName)}___${splitCamel(getApiName)}: '${splitCamel(databaseName)}___${splitCamel(getApiName)}',
     ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS: '${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS',
     ${splitCamel(databaseName)}___${splitCamel(putApiName)}: '${splitCamel(databaseName)}___${splitCamel(putApiName)}',
   };
 
   export const ${getApiName} = () => {
     return {
-      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(databaseName)},
+      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)},
     };
   };
   
   export const ${getApiName}Success = (response) => {
     return {
-      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(databaseName)}_SUCCESS,
+      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS,
       ...response.data
     };
   };
