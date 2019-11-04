@@ -68,54 +68,45 @@ export default ${upperCaseFirstChar(databaseName)}Resource;
 `);
 };
 
-
-export const generateActions = ({ databaseName, getApiName, putApiName }) => {
+export const generateRedux = ({databaseName, getApiName, putApiName, containerName}) => {
   return format(`
-  const actionTypes = {
-    ${splitCamel(databaseName)}___${splitCamel(getApiName)}: '${splitCamel(databaseName)}___${splitCamel(getApiName)}',
-    ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS: '${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS',
-    ${splitCamel(databaseName)}___${splitCamel(putApiName)}: '${splitCamel(databaseName)}___${splitCamel(putApiName)}',
-  };
-
-  export const ${getApiName} = () => {
-    return {
-      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)},
-    };
-  };
   
-  export const ${getApiName}Success = (response) => {
-    return {
-      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS,
-      ...response.data
-    };
-  };
-  
-  export const ${putApiName} = () => {
-    return {
-      type: actionTypes.${splitCamel(databaseName)}___${splitCamel(putApiName)},
-    };
-  };
-  
-  `)
-};
-
-
-export const generateEpic = ({ databaseName, getApiName, putApiName }) => {
-  return format(`
-  import { Observable, Subject, pipe, of, from, interval, merge, fromEvent, SubscriptionLike, concat, forkJoin } from 'rxjs';
+  import { handleActions } from 'redux-actions';
+import {
+  Observable, Subject, pipe, of, from, interval, merge, fromEvent, SubscriptionLike, concat, forkJoin,
+} from 'rxjs';
 import { ofType } from 'redux-observable';
-import { mergeMap, concatMap, tap, mapTo, map, catchError, retry, retryWhen, takeUntil, flatMap, delay } from 'rxjs/operators';
+import {
+  mergeMap, concatMap, tap, mapTo, map, catchError, retry, retryWhen, takeUntil, flatMap, delay,
+} from 'rxjs/operators';
 import Resource from '~~apis/resource';
 import * as LoadingActions from '~~redux/Loading/LoadingActions';
 import * as NotificationSystemActions from '~~hoc/NotificationSystem/NotificationSystemActions';
 
-import {
-  actionTypes,
+const actionTypes = {
+  ${splitCamel(databaseName)}___${splitCamel(getApiName)}: '${splitCamel(databaseName)}___${splitCamel(getApiName)}',
+  ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS: '${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS',
+  ${splitCamel(databaseName)}___${splitCamel(putApiName)}: '${splitCamel(databaseName)}___${splitCamel(putApiName)}',
+};
 
-  ${getApiName},
-  ${getApiName}Success
+export const ${getApiName} = () => {
+  return {
+    type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)},
+  };
+};
 
-} from './${upperCaseFirstChar(databaseName)}Actions';
+export const ${getApiName}Success = (response) => {
+  return {
+    type: actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS,
+    ...response.data
+  };
+};
+
+export const ${putApiName} = () => {
+  return {
+    type: actionTypes.${splitCamel(databaseName)}___${splitCamel(putApiName)},
+  };
+};
 
 export const ${getApiName}Epic = (action$, state$) => {
   return action$.pipe(
@@ -178,20 +169,17 @@ export const ${putApiName}Epic = (action$, state$) => {
   );
 };
 
-export default [
-  ${getApiName}Epic,
-  ${putApiName}Epic,
-];
+// material price reducer
+const ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS = (state, payload) => {
+  return {
+    ...state,
+    ${lowerCaseFirstChar(containerName)}: {
+      ...state.${lowerCaseFirstChar(containerName)},
+      ...payload,
+    }
+  };
+};
 
-  `)
-}
-
-export const generateReducer = ({ databaseName, containerName, getApiName }) => {
-  return format(`
-  import { handleActions } from 'redux-actions';
-import _groupBy from 'lodash/groupBy';
-import _get from 'lodash/get';
-import { actionTypes } from '../${upperCaseFirstChar(databaseName)}/${upperCaseFirstChar(databaseName)}Actions';
 
 const initial${upperCaseFirstChar(containerName)} = {
   date: {},
@@ -202,20 +190,16 @@ const initialState = {
   ${lowerCaseFirstChar(containerName)}: initial${upperCaseFirstChar(containerName)},
 };
 
-export default handleActions({
-
-  [actionTypes.${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS]: (state, payload) => {
-    return {
-      ...state,
-      ${lowerCaseFirstChar(containerName)}: {
-        ...state.${lowerCaseFirstChar(containerName)},
-        ...payload,
-      }
-    };
-  },
-
+export const reducer = handleActions({
+  ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS,
 }, initialState);
 
+export const epics = [
+  ${getApiName}Epic,
+  ${putApiName}Epic,
+];
+
+  
   `);
 }
 

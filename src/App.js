@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Box, TextField } from '@material-ui/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { upperCaseFirstChar, generateFakeData, generateResource, generateActions, generateEpic, generateReducer, generateContainer, generateColumns } from './codeGen';
+import { upperCaseFirstChar, generateFakeData, generateResource, generateRedux, generateContainer, generateColumns } from './codeGen';
 
 
 function App() {
@@ -46,23 +46,9 @@ function App() {
         </SyntaxHighlighter>
       </Box>
       <Box>
-        <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseDatabaseName}Actions.js</h3>
+        <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseDatabaseName}Redux.js</h3>
         <SyntaxHighlighter language="javascript" style={docco}>
-          {generateActions({ databaseName, getApiName, putApiName, })}
-        </SyntaxHighlighter>
-      </Box>
-
-      <Box>
-        <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseDatabaseName}Epics.js</h3>
-        <SyntaxHighlighter language="javascript" style={docco}>
-          {generateEpic({ databaseName, getApiName, putApiName, })}
-        </SyntaxHighlighter>
-      </Box>
-
-      <Box>
-        <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseDatabaseName}Reducer.js</h3>
-        <SyntaxHighlighter language="javascript" style={docco}>
-          {generateReducer({ databaseName, getApiName, containerName, })}
+          {generateRedux({ databaseName, getApiName, putApiName, containerName})}
         </SyntaxHighlighter>
       </Box>
 
