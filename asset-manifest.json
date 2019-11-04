@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.js": "/procurement-page-generator/static/js/main.65661d2d.chunk.js",
-    "main.js.map": "/procurement-page-generator/static/js/main.65661d2d.chunk.js.map",
+    "main.css": "/procurement-page-generator/static/css/main.fdb12795.chunk.css",
+    "main.js": "/procurement-page-generator/static/js/main.fd2e6a97.chunk.js",
+    "main.js.map": "/procurement-page-generator/static/js/main.fd2e6a97.chunk.js.map",
     "runtime-main.js": "/procurement-page-generator/static/js/runtime-main.2c9f9d73.js",
     "runtime-main.js.map": "/procurement-page-generator/static/js/runtime-main.2c9f9d73.js.map",
-    "static/js/2.9d57d429.chunk.js": "/procurement-page-generator/static/js/2.9d57d429.chunk.js",
-    "static/js/2.9d57d429.chunk.js.map": "/procurement-page-generator/static/js/2.9d57d429.chunk.js.map",
+    "static/js/2.8343177f.chunk.js": "/procurement-page-generator/static/js/2.8343177f.chunk.js",
+    "static/js/2.8343177f.chunk.js.map": "/procurement-page-generator/static/js/2.8343177f.chunk.js.map",
     "index.html": "/procurement-page-generator/index.html",
-    "precache-manifest.e9bbf3f0812d6f3c0d009f1e6960f594.js": "/procurement-page-generator/precache-manifest.e9bbf3f0812d6f3c0d009f1e6960f594.js",
-    "service-worker.js": "/procurement-page-generator/service-worker.js"
+    "precache-manifest.7cc5be2b569388f378394f69c42b7cf1.js": "/procurement-page-generator/precache-manifest.7cc5be2b569388f378394f69c42b7cf1.js",
+    "service-worker.js": "/procurement-page-generator/service-worker.js",
+    "static/css/main.fdb12795.chunk.css.map": "/procurement-page-generator/static/css/main.fdb12795.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.2c9f9d73.js",
-    "static/js/2.9d57d429.chunk.js",
-    "static/js/main.65661d2d.chunk.js"
+    "static/js/2.8343177f.chunk.js",
+    "static/css/main.fdb12795.chunk.css",
+    "static/js/main.fd2e6a97.chunk.js"
   ]
 }
