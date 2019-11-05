@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Container, Box, TextField } from '@material-ui/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { upperCaseFirstChar, generateFakeData, generateResource, generateRedux, generateContainer, generateColumns } from './codeGen';
 
+import { upperCaseFirstChar } from './CodeGen/utils';
+import { generateFakeData, generateResource } from './CodeGen/genResource';
+import generateRedux from './CodeGen/genRedux';
+import { generateContainer, generateSideTable, generateColumns } from './CodeGen/DoubleColumn';
 
 function Col2() {
   const [databaseName, setDatabaseName] = useState('DieCutCleanSheet');
@@ -65,6 +68,13 @@ function Col2() {
         <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseContainerName}/ColumnSetting.js</h3>
         <SyntaxHighlighter language="javascript" style={docco}>
           {generateColumns({ databaseName, getApiName, containerName, })}
+        </SyntaxHighlighter>
+      </Box>
+
+      <Box>
+        <h3>frontEnd/src/features/Database/ME/{uperCaseDatabaseName}/{uperCaseContainerName}/SideTable.js</h3>
+        <SyntaxHighlighter language="javascript" style={docco}>
+          {generateSideTable({ databaseName, getApiName, containerName, })}
         </SyntaxHighlighter>
       </Box>
     </Container>

@@ -13,7 +13,7 @@
     "react-syntax-highlighter": "^11.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3987 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "deploy": "gh-pages -d build",

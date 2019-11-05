@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Container, Box, TextField } from '@material-ui/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { upperCaseFirstChar, generateFakeData, generateResource, generateRedux, generateContainer, generateColumns } from './codeGen';
+
+import { upperCaseFirstChar } from './CodeGen/utils';
+import { generateFakeData, generateResource } from './CodeGen/genResource';
+import generateRedux from './CodeGen/genRedux';
+import { generateColumns, generateContainer } from './CodeGen/SingleColumn';
 
 
 function Col1() {

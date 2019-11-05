@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box } from '@material-ui/core';
 import png_col1 from './col1.png';
 import png_col2 from './col2.png';
 
