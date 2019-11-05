@@ -13,7 +13,7 @@ import Button from '~~elements/Button';
 import Table from '~~elements/Table';
 import { InlineBtns, InnerContainer } from '~~features/Database/DatabaseStyles';
 import SearchBar from '~~features/Database/components/SearchBar';
-import * as ${upperCaseFirstChar(databaseName)}Actions from '~~features/Database/ME/${upperCaseFirstChar(databaseName)}/${upperCaseFirstChar(databaseName)}Actions';
+import * as ${upperCaseFirstChar(databaseName)}Actions from '~~features/Database/ME/${upperCaseFirstChar(databaseName)}/${upperCaseFirstChar(databaseName)}Redux';
 import getColumns from './ColumnSetting';
 
 const ${upperCaseFirstChar(containerName)} = (props) => {
