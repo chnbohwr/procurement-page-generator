@@ -142,6 +142,7 @@ const ${upperCaseFirstChar(containerName)} = (props) => {
           }
         </div>
         <Table
+          rowKey="id"
           headerColor="blue"
           columns={getColumns(extendsColumnPorps)}
           dataSource={isEditMode ? editModeList : mainTableList}

@@ -102,7 +102,6 @@ export default ({databaseName, getApiName, putApiName, containerName}) => {
     );
   };
   
-  // material price reducer
   const ${splitCamel(databaseName)}___${splitCamel(getApiName)}_SUCCESS = (state, payload) => {
     return {
       ...state,
@@ -112,7 +111,6 @@ export default ({databaseName, getApiName, putApiName, containerName}) => {
       }
     };
   };
-  
   
   const initial${upperCaseFirstChar(containerName)} = {
     date: {},
