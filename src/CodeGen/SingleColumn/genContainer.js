@@ -80,7 +80,7 @@ const ${upperCaseFirstChar(containerName)} = (props) => {
       <div className="inner-content">
         <div className="content-header">
           <div className="title">
-            這邊你要自己改名字喔，沒改到別怪我ＱＱ
+          ${upperCaseFirstChar(containerName)}
           </div>
         </div>
         <div className="content-row">
