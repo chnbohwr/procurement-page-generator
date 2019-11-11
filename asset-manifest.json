@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/procurement-page-generator/static/css/main.fdb12795.chunk.css",
-    "main.js": "/procurement-page-generator/static/js/main.f667e3e5.chunk.js",
-    "main.js.map": "/procurement-page-generator/static/js/main.f667e3e5.chunk.js.map",
+    "main.js": "/procurement-page-generator/static/js/main.715fcbee.chunk.js",
+    "main.js.map": "/procurement-page-generator/static/js/main.715fcbee.chunk.js.map",
     "runtime-main.js": "/procurement-page-generator/static/js/runtime-main.2c9f9d73.js",
     "runtime-main.js.map": "/procurement-page-generator/static/js/runtime-main.2c9f9d73.js.map",
     "static/js/2.78364d61.chunk.js": "/procurement-page-generator/static/js/2.78364d61.chunk.js",
     "static/js/2.78364d61.chunk.js.map": "/procurement-page-generator/static/js/2.78364d61.chunk.js.map",
     "index.html": "/procurement-page-generator/index.html",
-    "precache-manifest.13429c581708103f5bcc655538553b86.js": "/procurement-page-generator/precache-manifest.13429c581708103f5bcc655538553b86.js",
+    "precache-manifest.ff4ab7e8f9494e361fd30e1c750235f2.js": "/procurement-page-generator/precache-manifest.ff4ab7e8f9494e361fd30e1c750235f2.js",
     "service-worker.js": "/procurement-page-generator/service-worker.js",
     "static/css/main.fdb12795.chunk.css.map": "/procurement-page-generator/static/css/main.fdb12795.chunk.css.map",
     "static/media/col1.png": "/procurement-page-generator/static/media/col1.a90b3d69.png",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.2c9f9d73.js",
     "static/js/2.78364d61.chunk.js",
     "static/css/main.fdb12795.chunk.css",
-    "static/js/main.f667e3e5.chunk.js"
+    "static/js/main.715fcbee.chunk.js"
   ]
 }
